@@ -19,7 +19,6 @@ class UserCreationForm(forms.ModelForm):
         label="Password confirmation",
         widget=forms.PasswordInput(attrs={"autocomplete": "new-password"}),
         strip=False,
-        help_text="Enter the same password as before, for verification.",
     )
 
     class Meta:

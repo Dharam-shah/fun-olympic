@@ -31,8 +31,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
-# Application definition
 # Application definition
 DJANGO_APPS = [
     'django.contrib.admin',
@@ -43,7 +41,9 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
 ]
 
-THIRD_PARTY_APPS = []
+THIRD_PARTY_APPS = [
+    'crispy_forms',
+]
 
 LOCAL_APPS = [ 
     'apps.users',
@@ -117,7 +117,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-# CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(PROJECT_DIR, 'static')]
 
