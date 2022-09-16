@@ -47,6 +47,7 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [ 
     'apps.users',
+    'apps.funolympic',
 ] 
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
