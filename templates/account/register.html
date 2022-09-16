@@ -5,12 +5,12 @@
         <div class="header text-center mb-3">
             <h2>Create Account</h2>
         </div>
-        {% csrf_token %}
         <form method="post">
-            {{ form|crispy }}
-            <div class="register-btn text-center">    
-                <button type="Submit" class="btn btn-primary px-4">Register</button>
-            </div>
+          {% csrf_token %}
+          {{ form|crispy }}
+          <div class="register-btn text-center">    
+              <button type="Submit" class="btn btn-primary px-4">Register</button>
+          </div>
         </form>
     </div>
   </div>
