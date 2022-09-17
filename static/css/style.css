@@ -1,6 +1,7 @@
 body {
     min-width: 320px;
     overflow-x: hidden;
+    height: 100vh;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -55,6 +56,27 @@ a {
     font-size: 1rem;
 }
 
+.site-wrapper {
+    margin: 0 auto;
+    min-height: 100%;
+    min-width: 320px;
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.site-header,
+.site-content,
+.site-footer {
+    flex-shrink: 0;
+}
+
+.site-content {
+    flex-grow: 1;
+}
+
 .site-header .navbar {
     padding: 0;
     align-items: center;
@@ -78,17 +100,30 @@ a {
 }
 
 /* Sign Up Form */
-.signup-form {
+.form-content {
     padding: 0 2rem;
     border-radius: 6px;
     box-shadow: 0 5px 24px rgba(0, 0, 0, 0.3);
 }
 
 @media (min-width:992px) {
-    .signup-form {
+    .form-content {
         max-width: 550px;
         padding: 0 3rem;
         margin: 0 auto;
+    }
+}
+
+.login-form,
+.password-reset {
+    padding: 6rem 0;
+}
+
+@media (min-width:1440px) {
+
+    .login-form,
+    .password-reset {
+        padding: 7rem 0;
     }
 }
 
@@ -371,4 +406,9 @@ a {
 
 .site-footer {
     border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.form-group #hint_id_password1,
+#hint_id_password2 {
+    display: none;
 }
