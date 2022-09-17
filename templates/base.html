@@ -18,6 +18,10 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
     <!-- Font Awesome-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+    <link rel="stylesheet" href="{% static 'vendor/slick/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'vendor/fancybox/jquery.fancybox.min.css' %}">
+
   </head>
 
   <body>
@@ -61,13 +65,13 @@
 
     <main>{% block main %} {% endblock %}</main>
 
-    <footer id="footer" class="site-footer pt-xl-5 pt-lg-4 pt-md-3 pt-2">
+    <footer id="footer" class="site-footer py-md-3 py-2">
       <div class="container">
-        <div class="copyright pb-lg-2 pb-1 mt-lg-3 mt-2">
-          <span>Copyright ©2022 | All rights reserved<a href="#"></a></span>
-          <div class="email">
+        <div class="copyright text-center">
+          <span>Copyright ©2022 Fun OLympic | All rights reserved<a href="#"></a></span>
+          {% comment %} <div class="email">
             <a href="#">www.tender.com</a>
-          </div>
+          </div> {% endcomment %}
         </div>
       </div>
     </footer>
@@ -79,6 +83,8 @@
 
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
+    <script src="static/vendor/slick/slick.min.js"></script>
+    <script src="static/vendor/fancybox/jquery.fancybox.min.js"></script>
+    <script src="static/js/main.js"></script>
   </body>
 </html>
