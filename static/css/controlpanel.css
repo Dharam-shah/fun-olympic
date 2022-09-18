@@ -1,0 +1,132 @@
+body {
+    min-width: 320px;
+    overflow-x: hidden;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+}
+
+a {
+    transition: .2s all ease-in-out;
+}
+
+.site-wrapper {
+    margin: 0 auto;
+    min-height: 100%;
+    min-width: 320px;
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.site-header,
+.site-content,
+.site-footer {
+    flex-shrink: 0;
+}
+
+.site-content {
+    flex-grow: 1;
+}
+
+.wrapper {
+    width: 100%;
+}
+
+#sidebar {
+    min-width: 300px;
+    max-width: 300px;
+    background: #343a40;
+    color: #fff;
+    min-height: 100vh;
+    height: 100%;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+#sidebar.active {
+    margin-left: -300px;
+}
+
+#sidebar .logo {
+    display: block;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+}
+
+#sidebar .logo span {
+    display: block;
+}
+
+#sidebar ul.components {
+    padding: 0;
+}
+
+#sidebar ul li {
+    font-size: 16px;
+}
+
+#sidebar ul li>ul {
+    margin-left: 10px;
+}
+
+#sidebar ul li>ul li {
+    font-size: 14px;
+}
+
+#sidebar ul li a {
+    padding: 10px 0;
+    display: block;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+#sidebar ul li a:hover {
+    color: #f8b739;
+    text-decoration: none;
+}
+
+#sidebar ul li.active>a {
+    background: transparent;
+    color: #f8b739;
+}
+
+@media (max-width: 991.98px) {
+    #sidebar {
+        margin-left: -300px;
+    }
+
+    #sidebar.active {
+        margin-left: 0;
+    }
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+@media (max-width: 991.98px) {
+    #sidebarCollapse span {
+        display: none;
+    }
+}
+
+.full-width{
+    width: 100%;
+}
+
+.has-boxshadow{
+    box-shadow: 0 3px 1px -2px rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%);
+}
