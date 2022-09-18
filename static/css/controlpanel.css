@@ -81,11 +81,11 @@ a {
     padding: 10px 0;
     display: block;
     color: rgba(255, 255, 255, 0.8);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 #sidebar ul li a:hover {
     color: #f8b739;
+    text-decoration: none;
 }
 
 #sidebar ul li.active>a {
@@ -121,4 +121,8 @@ a[data-toggle="collapse"] {
     #sidebarCollapse span {
         display: none;
     }
+}
+
+.full-width{
+    width: 100%;
 }

@@ -34,41 +34,66 @@
       <nav id="sidebar">
         <div class="px-4 pt-3">
           <h2><a href="#" class="text-secondary">Fun Olympic</a></h2>
-          <ul class="list-unstyled components mb-5">
+          <ul class="list-unstyled components mt-4">
             <li>
-                <a href="#">Overview</a>
+                <a href="#"><i class="fa fa-home pr-2"></i>Overview</a>
               </li>
             <li class="active">
               <a
-                href="#homeSubmenu"
+                href="#game"
                 data-toggle="collapse"
                 aria-expanded="false"
                 class="dropdown-toggle"
-                >Home</a
+                ><i class="fa fa-trophy pr-2"></i>Game</a
               >
-              <ul class="collapse list-unstyled" id="homeSubmenu">
+              <ul class="collapse list-unstyled pl-3" id="game">
                 <li>
-                  <a href="#">Home 1</a>
+                  <a href="#">Game list</a>
                 </li>
                 <li>
-                  <a href="#">Home 2</a>
-                </li>
-                <li>
-                  <a href="#">Home 3</a>
+                  <a href="#">Post game</a>
                 </li>
               </ul>
             </li>
-            <li>
-              <a href="#">About</a>
+            <li class="">
+              <a
+                href="#category"
+                data-toggle="collapse"
+                aria-expanded="false"
+                class="dropdown-toggle"
+                ><i class="fa fa-bars pr-2"></i>Category</a
+              >
+              <ul class="collapse list-unstyled pl-3" id="category">
+                <li>
+                  <a href="#">Category list</a>
+                </li>
+                <li>
+                  <a href="#">Add category</a>
+                </li>
+              </ul>
+            </li>
+            <li class="">
+              <a
+                href="#user"
+                data-toggle="collapse"
+                aria-expanded="false"
+                class="dropdown-toggle"
+                ><i class="fa fa-user-circle pr-2"></i>Users</a
+              >
+              <ul class="collapse list-unstyled pl-3" id="user">
+                <li>
+                  <a href="#">User list</a>
+                </li>
+              </ul>
             </li>
           </ul>
         </div>
       </nav>
 
       <!-- Page Content  -->
-      <div class="">
-        <nav class="navbar navbar-expand-lg bg-dark">
-          <div class="container-fluid">
+      <div class="full-width">
+        <nav class="navbar navbar-expand-lg bg-dark py-3">
+          <div class="container">
             <button type="button" id="sidebarCollapse" class="btn btn-primary">
               <i class="fa fa-bars"></i>
               <span class="sr-only">Toggle Menu</span>
@@ -88,7 +113,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle pr-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Dropdown
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -100,7 +125,8 @@
           </div>
         </nav>
         
-        <div class="">
+        <div class="container">
+          {% comment %} <div class="py-3">
             <h2 class="mb-4">Sidebar #01</h2>
             <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -120,6 +146,65 @@
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
             </p>
+          </div> {% endcomment %}
+          <div class="table-responsive text-nowrap">
+
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Heading</th>
+                  <th scope="col">Heading</th>
+                  <th scope="col">Heading</th>
+                  <th scope="col">Heading</th>
+                  <th scope="col">Heading</th>
+                  <th scope="col">Heading</th>
+                  <th scope="col">Heading</th>
+                  <th scope="col">Heading</th>
+                  <th scope="col">Heading</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                </tr>
+              </tbody>
+            </table>
+          
+          </div>
       </div>
     </div>
 
