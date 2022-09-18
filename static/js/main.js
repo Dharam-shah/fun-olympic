@@ -3,6 +3,18 @@
 
         $('[data-fancybox]').fancybox();
 
+        // slider-col-1
+        $(".slider-col-1").slick({
+            dots: true,
+            arrows: false,
+            infinite: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            adaptiveHeight: true,
+        });
+
         // slider-col-4
         $(".slider-col-4").slick({
             dots: false,
