@@ -38,9 +38,13 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <form class="form-inline my-2 my-lg-0 ml-auto">
               <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+              <div class="input-group-append">
+                <button class="btn btn-success" type="button">
+                  <i class="fa fa-search"></i>
+                </button>
+             </div>
             </form>
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ml-auto align-items-center">
               <li class="nav-item active">
                 <a class="nav-link" href="{% url 'homepage' %}">Home <span class="sr-only">(current)</span></a>
               </li>
@@ -51,8 +55,8 @@
                 <a class="nav-link" href="{% url 'login' %}">Login</a>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Dropdown
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Test User
+                   <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="32" height="32" class="rounded-circle img-fluid">
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="#">Profile</a>

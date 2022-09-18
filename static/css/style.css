@@ -99,6 +99,11 @@ a {
     color: rgba(black, .9);
 }
 
+/* .dropdown-toggle::after {
+    opacity: 0;
+    visibility: hidden;
+} */
+
 /* Sign Up Form */
 .form-content {
     padding: 0 2rem;
@@ -163,7 +168,7 @@ a {
 }
 
 .card-video__block .card-video__wrapper .card-video__title {
-    padding: 1rem 2rem 1rem 1rem;
+    padding: 1rem 1.5rem 1rem 1rem;
 }
 
 .card-video__block .card-video__wrapper .card-video__title h3,
@@ -177,6 +182,10 @@ a {
     text-decoration: none;
 }
 
+.card-video__block .card-video__wrapper .card-video__footer {
+    display: flex;
+    justify-content: space-between;
+}
 
 .center-block {
     height: 100%;
@@ -187,23 +196,109 @@ a {
 /* slick */
 .slider-col-4 {
     display: flex;
-    flex-wrap: nowrap
+    flex-wrap: nowrap;
 }
 
 .slider-col-4.slick-slider {
-    display: block
+    display: block;
 }
 
 @media (min-width: 768px) {
     .slick-track {
-        display: flex
+        display: flex;
     }
 }
 
 @media (min-width: 768px) {
     .slick-slide {
-        height: inherit
+        height: inherit;
     }
+}
+
+.slick-dots {
+    list-style: none;
+    margin: 0 0 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    padding-top: 1.25rem;
+}
+
+@media (min-width: 576px) {
+    .slick-dots {
+        padding-top: 1.5rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .slick-dots {
+        padding-top: 2rem;
+    }
+}
+
+@media (min-width: 1440px) {
+    .slick-dots {
+        padding-top: 2.5rem;
+    }
+}
+
+.slick-dots li {
+    line-height: 1;
+}
+
+.slick-dots li:only-child {
+    display: none;
+}
+
+.slick-dots li+li {
+    padding-left: 10px;
+}
+
+.slick-dots button {
+    outline: none;
+    box-shadow: none;
+    font-size: 0;
+    padding: 0;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    z-index: 1;
+    background-color: transparent;
+    border: 2px solid transparent;
+    transition: all 0.3s ease-in-out;
+}
+
+@media (min-width: 992px) {
+    .slick-dots button {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .slick-dots button {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+.slick-dots button::before {
+    position: absolute;
+    z-index: -1;
+    content: "";
+    top: 50%;
+    left: 50%;
+    height: 4px;
+    width: 4px;
+    background: #000;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.slick-dots li.slick-active button,
+.slick-dots li:hover button {
+    border-color: #000;
 }
 
 .slick-arrow {
@@ -219,13 +314,13 @@ a {
     border: 1px solid transparent;
     position: absolute;
     transition: all 0.2s;
-    z-index: 1
+    z-index: 1;
 }
 
 @media (min-width: 768px) {
     .slick-arrow {
         width: 45px;
-        height: 45px
+        height: 45px;
     }
 }
 
@@ -234,126 +329,125 @@ a {
         top: 50%;
         transform: translateY(-50%);
         bottom: auto;
-        margin: 0
+        margin: 0;
     }
 }
 
 @media (min-width: 1200px) {
     .slick-arrow {
         width: 59px;
-        height: 59px
+        height: 59px;
     }
 }
 
 .slick-arrow:hover:not(.slick-disabled),
 .slick-arrow:focus:not(.slick-disabled) {
-    color: #000
+    color: #000;
 }
 
 .slick-arrow:before {
     content: "\f061";
-    /* font-family: "icomoon"; */
     font: normal normal normal 14px/1 FontAwesome;
     display: inline-block;
-    font-size: 1.25rem
+    font-size: 1.25rem;
 }
 
 @media (min-width: 768px) {
     .slick-arrow:before {
-        font-size: 1.625rem
+        font-size: 1.625rem;
     }
 }
 
 @media (min-width: 768px) and (max-width: 1200px) {
     .slick-arrow:before {
-        font-size: calc(1.2875rem + .45vw)
+        font-size: calc(1.25rem + .45vw);
     }
 }
 
 @media (min-width: 1200px) {
     .slick-arrow:before {
-        font-size: 1.875rem
+        font-size: 1.875rem;
     }
 }
 
 @media (min-width: 1200px) and (max-width: 1200px) {
     .slick-arrow:before {
-        font-size: calc(1.3125rem + .75vw)
+        font-size: calc(1.25rem + .75vw);
     }
 }
 
 .slick-arrow.slick-disabled {
-    opacity: 0.7
+    opacity: 0.7;
 }
 
 .slick-prev {
-    right: 50%
+    right: 50%;
 }
 
 @media (min-width: 992px) {
     .slick-prev {
         left: 0;
-        right: auto
+        right: auto;
     }
 }
 
 .slick-next {
-    left: 50%
+    left: 50%;
 }
 
 @media (min-width: 992px) {
     .slick-next {
         right: 0;
-        left: auto
+        left: auto;
     }
 }
 
 .slick-next:before {
-    content: "\f178"
+    content: "\f178";
 }
 
 
 .slick-list {
-    padding: 0 !important
+    padding: 0 !important;
 }
 
 @media (min-width: 992px) {
     .slick-disabled--hidden .slick-disabled {
-        display: none !important
+        display: none !important;
     }
 }
 
 .arrowType2 .slick-arrow::before {
-    font-size: 1.375rem
+    font-size: 1.375rem;
 }
 
 @media (max-width: 1200px) {
     .arrowType2 .slick-arrow::before {
-        font-size: calc(1.2625rem + .15vw)
+        font-size: calc(1.2625rem + .15vw);
     }
 }
 
 .arrowType2 .slick-prev::before {
-    content: "\f060"
+    content: "\f060";
 }
 
 .arrowType2 .slick-next::before {
-    content: "\f061"
+    content: "\f061";
 }
 
 .arrowBtm.slick-slider {
-    padding-bottom: 48px
+    padding-bottom: 48px;
 }
 
 @media (min-width: 768px) {
     .arrowBtm.slick-slider {
-        padding-bottom: 64px
+        padding-bottom: 64px;
     }
 }
 
 @media (min-width: 1200px) {
     .arrowBtm.slick-slider {
-        padding-bottom: 86px
+        padding-bottom: 86px;
     }
 }
 
@@ -361,29 +455,29 @@ a {
     transform: none;
     top: auto;
     bottom: 0;
-    margin: 0 10px
+    margin: 0 10px;
 }
 
 .arrowBtm .slick-prev {
     left: auto;
-    right: 50%
+    right: 50%;
 }
 
 .arrowBtm .slick-next {
     right: auto;
-    left: 50%
+    left: 50%;
 }
 
 @media (min-width: 1400px) {
     .arrowMd .slick-arrow {
         width: 56px;
-        height: 56px
+        height: 56px;
     }
 }
 
 .arrowBlack .slick-arrow {
     background-color: #010101;
-    color: #fff
+    color: #fff;
 }
 
 .arrowBlack .slick-arrow::before {
@@ -392,14 +486,14 @@ a {
 
 @media (max-width: 1200px) {
     .arrowBlack .slick-arrow::before {
-        font-size: calc(.875rem + .3vw)
+        font-size: calc(.875rem + .3vw);
     }
 }
 
 .arrowBlack .slick-arrow:hover:not(.slick-disabled),
 .arrowBlack .slick-arrow:focus:not(.slick-disabled) {
     background-color: #FD0100;
-    color: #fff
+    color: #fff;
 }
 
 /* slick-ends */
