@@ -1,4 +1,3 @@
-from unicodedata import category
 from django.db import models
 from django.utils.translation import gettext as _
 from autoslug import AutoSlugField
@@ -105,4 +104,3 @@ class OlympicGame(models.Model):
 
     def __str__(self):
         return self.title
-        
