@@ -33,7 +33,7 @@
     <div class="wrapper d-flex">
       <nav id="sidebar">
         <div class="px-4 pt-3">
-          <h2><a href="#" class="text-secondary">Fun Olympic</a></h2>
+          <h2><a href="{% url 'homepage' %}" class="text-secondary">Fun Olympic</a></h2>
           <ul class="list-unstyled components mt-4">
             <li>
                 <a href="{% url 'overview' %}"><i class="fa fa-home pr-2"></i>Overview</a>
@@ -68,7 +68,7 @@
                   <a href="{% url 'category-list' %}">Category list</a>
                 </li>
                 <li>
-                  <a href="#">Add category</a>
+                  <a href="{% url 'create-category' %}">Add category</a>
                 </li>
               </ul>
             </li>

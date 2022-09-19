@@ -1,11 +1,23 @@
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, CreateView
+from django.urls import reverse_lazy
 from apps.users.models import User
+from apps.funolympic.models import Category, OlympicGame 
+from .forms import CategoryForm
+
 # Create your views here.
 class DashboardOverView(TemplateView):
     template_name = 'controlpanel/base.html'
 
 class CategoryListView(TemplateView):
+    # model = User
+    # context_object_name = 'users'
     template_name = 'controlpanel/category/category_list.html'
+
+class CreateCategoryView(CreateView):
+    model = Category
+    form_class = CategoryForm
+    template_name = 'controlpanel/category/create_category.html'
+    success_url = reverse_lazy('category-list')
 
 
 class UserListView(ListView):
