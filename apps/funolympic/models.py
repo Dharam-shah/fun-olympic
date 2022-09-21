@@ -1,4 +1,3 @@
-from unicodedata import category
 from django.db import models
 from django.utils.translation import gettext as _
 from autoslug import AutoSlugField
@@ -12,9 +11,9 @@ class Category(models.Model):
         unique=True,
     )
     image = models.ImageField(
-        _('Image'),
         upload_to='category-img',
     )
+    # image = models.ImageField(upload_to='tender/tender_images', blank=True, null=True)
     description = models.TextField(
         _('Description'),
         blank=True,
@@ -105,4 +104,3 @@ class OlympicGame(models.Model):
 
     def __str__(self):
         return self.title
-        

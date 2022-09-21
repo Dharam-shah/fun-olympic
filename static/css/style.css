@@ -105,6 +105,10 @@ a {
     visibility: hidden;
 } */
 
+
+.banner-slider__item img{
+    width: 100%;
+}
 /* Sign Up Form */
 .form-content {
     padding: 0 2rem;
@@ -310,6 +314,7 @@ a {
     padding: 0.5625rem;
     width: 40px;
     height: 40px;
+    border-radius: 50%;
     bottom: 0;
     margin: 0 8px;
     border: 1px solid transparent;
