@@ -99,6 +99,7 @@ a {
     color: rgba(black, .9);
 }
 
+
 /* .dropdown-toggle::after {
     opacity: 0;
     visibility: hidden;
@@ -507,7 +508,34 @@ a {
     border-top: 1px solid rgba(0, 0, 0, 0.15);
 }
 
+/* Form */
+
 .form-group #hint_id_password1,
 #hint_id_password2 {
     display: none;
+}
+
+@media (min-width: 992px) {
+    .form-group {
+        margin-bottom: 1.25rem;
+    }
+}
+
+
+.form-control {
+    height: 3rem;
+    border-radius: 0;
+}
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+.alert-block {
+    border-color: red;
+    background-color: white;
+}
+
+.alert-block li {
+    color: red;
 }
