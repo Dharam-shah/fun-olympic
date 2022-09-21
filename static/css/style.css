@@ -104,11 +104,16 @@ a {
     opacity: 0;
     visibility: hidden;
 } */
+@media (min-width:992px) {
+    .banner-slider__item img {
+        height: 565px;
+    }
+}
 
-
-.banner-slider__item img{
+.banner-slider__item img {
     width: 100%;
 }
+
 /* Sign Up Form */
 .form-content {
     padding: 0 2rem;
@@ -226,25 +231,7 @@ a {
     padding: 0;
     display: flex;
     justify-content: center;
-    padding-top: 1.25rem;
-}
-
-@media (min-width: 576px) {
-    .slick-dots {
-        padding-top: 1.5rem;
-    }
-}
-
-@media (min-width: 992px) {
-    .slick-dots {
-        padding-top: 2rem;
-    }
-}
-
-@media (min-width: 1440px) {
-    .slick-dots {
-        padding-top: 2.5rem;
-    }
+    padding-top: 1rem;
 }
 
 .slick-dots li {
@@ -310,7 +297,7 @@ a {
     font-size: 0;
     line-height: 1;
     background-color: transparent;
-    color: #FD0100;
+    color: #000;
     padding: 0.5625rem;
     width: 40px;
     height: 40px;
@@ -383,7 +370,8 @@ a {
 }
 
 .slick-arrow.slick-disabled {
-    opacity: 0.7;
+    opacity: 0.5;
+    cursor: not-allowed !important;
 }
 
 .slick-prev {
@@ -498,8 +486,9 @@ a {
 
 .arrowBlack .slick-arrow:hover:not(.slick-disabled),
 .arrowBlack .slick-arrow:focus:not(.slick-disabled) {
-    background-color: #FD0100;
-    color: #fff;
+    background-color: white;
+    border-color: #000;
+    color: #000;
 }
 
 /* slick-ends */
@@ -521,12 +510,6 @@ a {
     }
 }
 
-
-.form-control {
-    height: 3rem;
-    border-radius: 0;
-}
-
 .form-control:focus {
     box-shadow: none;
 }
@@ -538,4 +521,31 @@ a {
 
 .alert-block li {
     color: red;
+}
+
+.btn-gray {
+    color: rgba(0, 0, 0, .5);
+    background-color: white;
+    border-color: #ced4da;
+}
+
+.btn-gray:hover,
+.btn-gray:focus {
+    color: white;
+    background-color: #000;
+    border-color: #000;
+}
+
+
+.btn-dark {
+    color: black;
+    background-color: white;
+    border-color: #000;
+    font-size: 18px;
+}
+
+@media (min-width: 992px) {
+    .btn-dark {
+        font-size: 20px;
+    }
 }
