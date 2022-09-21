@@ -48,12 +48,13 @@
               >
               <ul id="game" class="collapse list-unstyled pl-3
                 {% if request.path == '/controlpanel/game-list/' %} show {% endif %}
+                {% if request.path == '/controlpanel/create-game/' %} show {% endif %}
               ">
                 <li class="{% if request.path == '/controlpanel/game-list/' %} active {% endif %}">
                   <a href="{% url 'game-list' %}">Game list</a>
                 </li>
-                <li>
-                  <a href="#">Post game</a>
+                <li class="{% if request.path == '/controlpanel/create-game/' %} active {% endif %}">
+                  <a href="{% url 'create-game' %}">Post game</a>
                 </li>
               </ul>
             </li>
