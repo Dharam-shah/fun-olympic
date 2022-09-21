@@ -1,5 +1,6 @@
 from django.urls import path
-from .views import DashboardOverView, CategoryListView, UserListView, CreateCategoryView, UpdateCategoryView
+from .views import DashboardOverView, CategoryListView, UserListView, CreateCategoryView, UpdateCategoryView, \
+                GameListView
                 
 
 urlpatterns = [
@@ -10,4 +11,6 @@ urlpatterns = [
     path("category/update/<int:pk>", UpdateCategoryView.as_view(), name="update-category"),
 
     path("user-list/", UserListView.as_view(), name="user-list"),
+
+    path("game-list/", GameListView.as_view(), name="game-list"),
 ]

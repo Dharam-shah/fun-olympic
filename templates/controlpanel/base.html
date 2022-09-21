@@ -35,10 +35,10 @@
         <div class="px-4 pt-3">
           <h2><a href="{% url 'homepage' %}" class="text-secondary">Fun Olympic</a></h2>
           <ul class="list-unstyled components mt-4">
-            <li>
+            <li class="{% if request.path == '/controlpanel/overview/' %} active {% endif %}">
                 <a href="{% url 'overview' %}"><i class="fa fa-home pr-2"></i>Overview</a>
-              </li>
-            <li class="active">
+            </li>
+            <li>
               <a
                 href="#game"
                 data-toggle="collapse"
@@ -46,16 +46,18 @@
                 class="dropdown-toggle"
                 ><i class="fa fa-trophy pr-2"></i>Game</a
               >
-              <ul class="collapse list-unstyled pl-3" id="game">
-                <li>
-                  <a href="#">Game list</a>
+              <ul id="game" class="collapse list-unstyled pl-3
+                {% if request.path == '/controlpanel/game-list/' %} show {% endif %}
+              ">
+                <li class="{% if request.path == '/controlpanel/game-list/' %} active {% endif %}">
+                  <a href="{% url 'game-list' %}">Game list</a>
                 </li>
                 <li>
                   <a href="#">Post game</a>
                 </li>
               </ul>
             </li>
-            <li class="">
+            <li>
               <a
                 href="#category"
                 data-toggle="collapse"
@@ -63,16 +65,19 @@
                 class="dropdown-toggle"
                 ><i class="fa fa-bars pr-2"></i>Category</a
               >
-              <ul class="collapse list-unstyled pl-3" id="category">
-                <li>
+              <ul id="category" class="collapse list-unstyled pl-3
+                {% if request.path == '/controlpanel/category-list/' %} show {% endif %}
+                {% if request.path == '/controlpanel/create-category/' %} show {% endif %}
+                ">
+                <li class="{% if request.path == '/controlpanel/category-list/' %} active {% endif %}">
                   <a href="{% url 'category-list' %}">Category list</a>
                 </li>
-                <li>
+                <li class="{% if request.path == '/controlpanel/create-category/' %} active {% endif %}">
                   <a href="{% url 'create-category' %}">Add category</a>
                 </li>
               </ul>
             </li>
-            <li class="">
+            <li>
               <a
                 href="#user"
                 data-toggle="collapse"
@@ -80,8 +85,9 @@
                 class="dropdown-toggle"
                 ><i class="fa fa-user-circle pr-2"></i>Users</a
               >
-              <ul class="collapse list-unstyled pl-3" id="user">
-                <li>
+              <ul id="user" class="collapse list-unstyled pl-3
+              {% if request.path == '/controlpanel/user-list/' %} show {% endif %}">
+                <li class="{% if request.path == '/controlpanel/user-list/' %} active {% endif %}">
                   <a href="{% url 'user-list' %}">User list</a>
                 </li>
               </ul>

@@ -8,6 +8,10 @@ from .forms import CategoryForm
 class DashboardOverView(TemplateView):
     template_name = 'controlpanel/base.html'
 
+class GameListView(TemplateView):
+    template_name = 'controlpanel/olympic-games/game_list.html'
+
+
 class CategoryListView(ListView):
     model = Category
     context_object_name = 'category_lists'
