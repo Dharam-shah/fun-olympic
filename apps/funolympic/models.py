@@ -13,7 +13,6 @@ class Category(models.Model):
     image = models.ImageField(
         upload_to='category-img',
     )
-    # image = models.ImageField(upload_to='tender/tender_images', blank=True, null=True)
     description = models.TextField(
         _('Description'),
         blank=True,

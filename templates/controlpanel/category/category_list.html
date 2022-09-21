@@ -19,11 +19,12 @@
         </tr>
       </thead>
       <tbody>
+        {% for category in category_lists %}
         <tr>
-          <th scope="row">1</th>
-          <td>Cell</td>
-          <td>Cell</td>
-          <td>Cell</td>
+          <th scope="row">{{ category.id }}</th>
+          <td>{{ category.title }}</td>
+          <td>{{ category.created_at|date:"M d, Y" }}</td>
+          <td>{{ category.cat_slug }}</td>
           <td>
             <div class="dropdown">
               <a
@@ -37,59 +38,31 @@
                 <i class="fa fa-pencil-square" aria-hidden="true"></i>
               </a>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="#">Edit</a>
+                <a class="dropdown-item" href="{% url 'update-category' category.id %}">Edit</a>
               </div>
             </div>
           </td>
         </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Cell</td>
-          <td>Cell</td>
-          <td>Cell</td>
-          <td>
-            <div class="dropdown">
-                <a
-                  class="btn btn-secondary dropdown-toggle"
-                  href="#"
-                  role="button"
-                  id="dropdownMenuLink"
-                  data-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  <i class="fa fa-pencil-square" aria-hidden="true"></i>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <a class="dropdown-item" href="#">Edit</a>
-                </div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Cell</td>
-          <td>Cell</td>
-          <td>Cell</td>
-          <td>
-            <div class="dropdown">
-                <a
-                  class="btn btn-secondary dropdown-toggle"
-                  href="#"
-                  role="button"
-                  id="dropdownMenuLink"
-                  data-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  <i class="fa fa-pencil-square" aria-hidden="true"></i>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <a class="dropdown-item" href="#">Edit</a>
-                </div>
-            </div>
-          </td>
-        </tr>
+        {% endfor %}
       </tbody>
     </table>
   </div>
+  {% if is_paginated %}
+    <ul class="pagination float-right py-2 px-4">
+    {% if page_obj.has_previous %}
+      <li class="mr-3">
+          <span><a href="?page={{ page_obj.previous_page_number }}" class="text-dark">Previous</a></span>
+      </li>
+    {% endif %}
+      <li class="text-muted">
+          <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+      </li>
+    {% if page_obj.has_next %}
+      <li class="ml-3">
+          <span><a href="?page={{ page_obj.next_page_number }}" class="text-dark">Next</a></span>
+      </li>
+    {% endif %}
+    </ul>
+  {% endif %}
 </div>
 {% endblock main %}
