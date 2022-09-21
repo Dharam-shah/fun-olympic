@@ -3,6 +3,16 @@
 
         $('[data-fancybox]').fancybox();
 
+        $(window).scroll(function () {
+            var scrollTop = $(window).scrollTop();
+            var headerHeight = $('.site-header').innerHeight();
+            if (scrollTop > headerHeight) {
+                $('.site-header').addClass('sticky-header')
+            } else {
+                $('.site-header').removeClass('sticky-header');
+            }
+        });
+
         // slider-col-1
         $(".slider-col-1").slick({
             dots: true,
