@@ -9,7 +9,7 @@
                 <tbody>
                     <tr>
                         <th>
-                            <form method="POST">
+                            <form method="POST" enctype="multipart/form-data">
                                 {% csrf_token %}
                                 {{ form|crispy }}
                                 <input type="submit" class="btn btn-primary float-right" value="Submit">
