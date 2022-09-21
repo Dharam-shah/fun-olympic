@@ -19,7 +19,15 @@ class CreateCategoryView(CreateView):
     template_name = 'controlpanel/category/create_category.html'
     success_url = reverse_lazy('category-list')
 
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST, request.FILES)
+        import ipdb; ipdb.set_trace()
+        if form.is_valid():
+            print('djhj')
+            # form.save()
+        return super().post(request, *args, **kwargs)
 
+        
 class UserListView(ListView):
     model = User
     context_object_name = 'users'
