@@ -8,13 +8,26 @@ from .forms import CategoryForm, GameCreateForm
 class DashboardOverView(TemplateView):
     template_name = 'controlpanel/base.html'
 
-class GameListView(TemplateView):
+
+class GameListView(ListView):
+    model = OlympicGame
+    context_object_name = 'game_lists'
     template_name = 'controlpanel/olympic-games/game_list.html'
+    paginate_by = 10
+    ordering = ['-id']
+
 
 class GameCreateView(CreateView):
     model = OlympicGame
     form_class = GameCreateForm
     template_name = 'controlpanel/olympic-games/create_game.html'
+    success_url = reverse_lazy('game-list')
+
+
+class UpdateGameView(UpdateView):
+    model = OlympicGame
+    form_class = GameCreateForm
+    template_name = 'controlpanel/olympic-games/update_game.html'
     success_url = reverse_lazy('game-list')
 
 

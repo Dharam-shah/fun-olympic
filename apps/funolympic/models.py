@@ -2,9 +2,18 @@ from django.db import models
 from django.utils.translation import gettext as _
 from autoslug import AutoSlugField
 from slugify import slugify
+from apps.users.models import User
+
 
 # Create your models here.
 class Category(models.Model):
+    user = models.ForeignKey(
+        User, 
+        on_delete=models.CASCADE, 
+        related_name='user',
+        blank=True, 
+        null=True
+    )
     title = models.CharField(
         _('Title'),
         max_length=50,
