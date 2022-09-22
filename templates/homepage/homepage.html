@@ -2,24 +2,22 @@
 <section class="banner">
 	<div class="banner-slider slider-col-1">
 		<div class="banner-slider__item">
-			
         <div class="text-center">
 				  <img src="{% static 'images/hmpage-slider-img/cricket-banner.jpg' %}" alt="Image" class="img-fluid mx-auto">
         </div>
-	
-		</div><!-- /.banner-slider__item -->
+		</div>
 		<div class="banner-slider__item">
         <div class="text-center">
 				  <img class="img-fluid mx-auto" src="{% static 'images/hmpage-slider-img/banner_volleyball.jpg' %}" alt="">
         </div>
-		</div><!-- /.banner-slider__item -->
+		</div>
 		<div class="banner-slider__item">
         <div class="text-center">
 		  		<img class="img-fluid mx-auto" src="{% static 'images/hmpage-slider-img/football-banner.jpg' %}" alt="">
         </div>
-		</div><!-- /.banner-slider__item -->
-	</div><!-- /.banner-slider  -->
-</section><!-- /.banner -->
+		</div>
+	</div>
+</section>
 
 <section class="card-video__block py-3 py-lg-4">
   <div class="container">
@@ -27,136 +25,45 @@
       <h2>Featured Videos</h2>
     </header>
     <div class="row mb-3">
+      {% for game in game_lists %}
       <div class="col-xl-3 col-lg-4 col-md-6 mb-2 mb-sm-3 mb-md-4 mb-xl-0">
         <div class="card-video__wrapper">
           <div class="card-video__media">
             <picture>
-              <img width="500" height="325" loading="lazy" src="https://sinaischoolsnew.smartwebsitedesign.com/media/sinai-documentaries.jpg" alt="Sinai Documentaries"/>
+              <img width="500" height="500" loading="lazy" src="{{ game.thumbnail_image.url }}" alt="Sinai Documentaries"/>
             </picture>
-            <a href="https://www.youtube.com/watch?v=D0UnqGm_miA" class="btn-play" data-fancybox=""><i class="fa fa-play"></i></a>
+            <a href="{{ game.video_url }}" class="btn-play" data-fancybox=""><i class="fa fa-play"></i></a>
           </div>
-          <!-- .card-block__media -->
           <div class="card-video__title">
-            <h3 class="h5 mb-2 mb-lg-3">Lorem Ismus</h3>
+            <h3 class="h5 mb-2 mb-lg-3">{{ game.title }}</h3>
             <div class="card-video__footer">
-              <h4 class="h6">Football</h6>
-              <small class="upload-date">1 week ago</small>
+              <h4 class="h6">{{ game.category.title }}</h6>
+              <small class="upload-date">{{ game.created_at|date:"M d, Y" }}</small>
             </div>
           </div>
-
-          <!-- .card-video__title -->
         </div>
-        <!-- .card-block__wrapper -->
       </div>
-      <div class="col-xl-3 col-lg-4 col-md-6 mb-2 mb-sm-3 mb-md-4 mb-xl-0">
-        <div class="card-video__wrapper">
-          <div class="card-video__media">
-            <picture>
-              <img width="500" height="325" loading="lazy" src="https://sinaischoolsnew.smartwebsitedesign.com/media/sinai-documentaries.jpg" alt="Sinai Documentaries"/>
-            </picture>
-            <a href="https://www.youtube.com/watch?v=D0UnqGm_miA" class="btn-play" data-fancybox=""><i class="fa fa-play"></i></a>
-          </div>
-          <!-- .card-block__media -->
-          <div class="card-video__title">
-            <h3 class="h5 mb-2 mb-lg-3">Lorem Ismus</h3>
-            <div class="card-video__footer">
-              <h4 class="h6">Football</h6>
-              <small class="upload-date">1 week ago</small>
-            </div>
-          </div>
-
-          <!-- .card-video__title -->
-        </div>
-        <!-- .card-block__wrapper -->
-      </div>
-      <div class="col-xl-3 col-lg-4 col-md-6 mb-2 mb-sm-3 mb-md-4 mb-xl-0">
-        <div class="card-video__wrapper">
-          <div class="card-video__media">
-            <picture>
-              <img width="500" height="325" loading="lazy" src="https://sinaischoolsnew.smartwebsitedesign.com/media/sinai-documentaries.jpg" alt="Sinai Documentaries"/>
-            </picture>
-            <a href="https://www.youtube.com/watch?v=D0UnqGm_miA" class="btn-play" data-fancybox=""><i class="fa fa-play"></i></a>
-          </div>
-          <!-- .card-block__media -->
-          <div class="card-video__title">
-            <h3 class="h5 mb-2 mb-lg-3">Lorem Ismus</h3>
-            <div class="card-video__footer">
-              <h4 class="h6">Football</h6>
-              <small class="upload-date">1 week ago</small>
-            </div>
-          </div>
-
-          <!-- .card-video__title -->
-        </div>
-        <!-- .card-block__wrapper -->
-      </div>
-      <div class="col-xl-3 col-lg-4 col-md-6 mb-2 mb-sm-3 mb-md-4 mb-xl-0">
-        <div class="card-video__wrapper">
-          <div class="card-video__media">
-            <picture>
-              <img width="500" height="325" loading="lazy" src="https://sinaischoolsnew.smartwebsitedesign.com/media/sinai-documentaries.jpg" alt="Sinai Documentaries"/>
-            </picture>
-            <a href="https://www.youtube.com/watch?v=D0UnqGm_miA" class="btn-play" data-fancybox=""><i class="fa fa-play"></i></a>
-          </div>
-          <!-- .card-block__media -->
-          <div class="card-video__title">
-            <h3 class="h5 mb-2 mb-lg-3">Lorem Ismus</h3>
-            <div class="card-video__footer">
-              <h4 class="h6">Football</h6>
-              <small class="upload-date">1 week ago</small>
-            </div>
-          </div>
-
-          <!-- .card-video__title -->
-        </div>
-        <!-- .card-block__wrapper -->
-      </div>
-      
+      {% endfor %}
     </div>
     <div class="btn-wrap text-center pt-3 pt-lg-4">
       <a href="#" class="btn btn-primary btn-dark px-3">Load More</a>
     </div>
   </div>
 </section>
-
 <section class="section py-3 py-lg-4">
   <div class="container">
     <header class="block-title text-center mb-3 mb-lg-4 mb-xl-5">
       <h2>Featured Categories</h2>
     </header>
-
     <div class="row slider-col-4 arrowBlack arrowMd arrowType2 arrowBtm">
+      {% for category in categories %}
       <div class="col-lg-4 item">
         <div class="item-content">
-          <a href="#"><img src="https://images.unsplash.com/photo-1539840093138-9b3e230e5206?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=765a2eb222b1851840a4a157780fb487&auto=format&fit=crop&w=1534&q=80" class="img-responsive center-block"></a>
-          <h4 class="h5 text-center">MAYORAL SUKNJA</h4>
+          <a href="#"><img src="{{ category.image.url }}" class="img-responsive center-block"></a>
+          <h4 class="h5 text-center">{{ category.title }}</h4>
         </div>
       </div>
-      <div class="col-lg-4 item">
-        <div class="item-content">
-          <a href="#"><img src="https://images.unsplash.com/photo-1539840093138-9b3e230e5206?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=765a2eb222b1851840a4a157780fb487&auto=format&fit=crop&w=1534&q=80" class="img-responsive center-block"></a>
-          <h4 class="h5 text-center">MAYORAL SUKNJA</h4>
-        </div>
-      </div>
-      <div class="col-lg-4 item">
-        <div class="item-content">
-          <a href="#"><img src="https://images.unsplash.com/photo-1539840093138-9b3e230e5206?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=765a2eb222b1851840a4a157780fb487&auto=format&fit=crop&w=1534&q=80" class="img-responsive center-block"></a>
-          <h4 class="h5 text-center">MAYORAL SUKNJA</h4>
-        </div>
-      </div>
-      <div class="col-lg-4 item">
-        <div class="item-content">
-          <a href="#"><img src="https://images.unsplash.com/photo-1539840093138-9b3e230e5206?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=765a2eb222b1851840a4a157780fb487&auto=format&fit=crop&w=1534&q=80" class="img-responsive center-block"></a>
-          <h4 class="h5 text-center">MAYORAL SUKNJA</h4>
-        </div>
-      </div>
-      <div class="col-lg-4 item">
-        <div class="item-content">
-          <a href="#"><img src="https://images.unsplash.com/photo-1539840093138-9b3e230e5206?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=765a2eb222b1851840a4a157780fb487&auto=format&fit=crop&w=1534&q=80" class="img-responsive center-block"></a>
-          <h4 class="h5 text-center">MAYORAL SUKNJA</h4>
-        </div>
-      </div>
-       
+      {% endfor %}
     </div>
   </div>
 </section>

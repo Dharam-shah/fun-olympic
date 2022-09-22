@@ -1,0 +1,24 @@
+{% extends 'controlpanel/base.html' %} {% load static %} {% load crispy_forms_tags %} {% block main %}
+<div class="category-wrapper">
+    <div class="container">   
+        <div class="table-title has-boxshadow mt-5">
+            <div class="cat-title py-3 px-3">
+                <h6>Add new category</h6>
+            </div>
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <th>
+                            <form method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {{ form|crispy }}
+                                <input type="submit" class="btn btn-primary float-right" value="Submit">
+                            </form>
+                        </th>
+                    </tr>
+                </tbody>
+            </table>  
+        </div>
+    </div>
+</div>
+{% endblock main %}
