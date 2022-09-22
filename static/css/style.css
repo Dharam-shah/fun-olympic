@@ -99,7 +99,6 @@ a {
     color: rgba(black, .9);
 }
 
-
 /* .dropdown-toggle::after {
     opacity: 0;
     visibility: hidden;
@@ -108,6 +107,46 @@ a {
     .banner-slider__item img {
         height: 565px;
     }
+
+    .banner-inner .banner-slider__item img {
+        height: 300px;
+        object-fit: cover;
+    }
+}
+
+.banner-inner {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    /* background-repeat: no-repeat; */
+    background-position: center;
+    background-image: url(../images/hmpage-slider-img/football-banner.jpg);
+    padding: 6rem 0;
+    z-index: 1;
+}
+
+
+.dark-overlay {
+    position: relative;
+    z-index: 1;
+}
+
+.dark-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    
+    z-index: -1;
+}
+
+.banner-inner .banner-slider__item .text-wrap h2 {
+    color: white;
+    font-size: 36px;
 }
 
 .banner-slider__item img {
@@ -195,6 +234,11 @@ a {
 .card-video__block .card-video__wrapper .card-video__footer {
     display: flex;
     justify-content: space-between;
+}
+
+.card-video__block .card-video__wrapper .card-video__media img {
+    height: 230px;
+    object-fit: cover;
 }
 
 .center-block {
@@ -553,29 +597,36 @@ a {
 
 .site-header {
     padding: 0.75rem 0;
-    position: fixed;
+    /* position: fixed; */
     top: 0;
     left: 0;
     right: 0;
     z-index: 10;
     transition: .2s ease-in-out all;
-  }
+}
 
 .sticky-header {
     padding-top: .75rem;
     padding-bottom: .75rem;
     /* box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); */
-    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)
-  }
-  
-  @media (min-width: 992px) {
-    .sticky-header {
-      padding-top: 1rem;
-      padding-bottom: 1rem;
-    }
-  }
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22)
+}
 
-  ::selection{
+@media (min-width: 992px) {
+    .sticky-header {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+}
+
+::selection {
     color: #fff;
     background-color: #000;
-  }
+}
+
+@media (min-width: 992px) {
+    .slider-col-4 .item-content img {
+        height: 320px;
+        object-fit: cover;
+    }
+}

@@ -1,0 +1,82 @@
+{% extends 'base.html' %} {% load static %} {% block main %}
+<section class="banner">
+	<div class="banner-inner dark-overlay">
+		<div class="banner-slider__item">
+      {% comment %} <img src="{% static 'images/hmpage-slider-img/football-banner.jpg' %}" alt="Image" class="img-fluid mx-auto"> {% endcomment %}
+        <div class="text-wrap text-center">
+         <h2> Fun Olympic</h2>
+        </div>
+		</div><!-- /.banner-slider__item -->
+	</div><!-- /.banner-slider  -->
+</section><!-- /.banner -->
+
+<section class="card-video__block py-3 py-lg-4">
+  <div class="container">
+    <header class="text-center mb-3 mb-lg-4 mb-xl-5">
+      <h2>Videos</h2>
+    </header>
+    <div class="row mb-3">
+      <div class="col-lg-4 col-md-6 mb-2 mb-sm-3 mb-md-4 mb-xl-0">
+        <div class="card-video__wrapper">
+          <div class="card-video__media">
+            <picture>
+              <img width="500" height="325" loading="lazy" src="https://sinaischoolsnew.smartwebsitedesign.com/media/sinai-documentaries.jpg" alt="Sinai Documentaries"/>
+            </picture>
+            <a href="https://www.youtube.com/watch?v=D0UnqGm_miA" class="btn-play" data-fancybox=""><i class="fa fa-play"></i></a>
+          </div>
+          <!-- .card-block__media -->
+          <div class="card-video__title">
+            <h3 class="h5 mb-2 mb-lg-3">Lorem Ismus</h3>
+            <div class="card-video__footer">
+              <h4 class="h6">Football</h6>
+              <small class="upload-date">1 week ago</small>
+            </div>
+          </div>
+
+          <!-- .card-video__title -->
+        </div>
+        <!-- .card-block__wrapper -->
+      </div>
+      <div class="col-lg-4 col-md-6 mb-2 mb-sm-3 mb-md-4 mb-xl-0">
+        <div class="card-video__wrapper">
+          <div class="card-video__media">
+            <picture>
+              <img width="500" height="325" loading="lazy" src="https://sinaischoolsnew.smartwebsitedesign.com/media/sinai-documentaries.jpg" alt="Sinai Documentaries"/>
+            </picture>
+            <a href="https://www.youtube.com/watch?v=D0UnqGm_miA" class="btn-play" data-fancybox=""><i class="fa fa-play"></i></a>
+          </div>
+          <!-- .card-block__media -->
+          <div class="card-video__title">
+            <h3 class="h5 mb-2 mb-lg-3">Lorem Ismus</h3>
+            <div class="card-video__footer">
+              <h4 class="h6">Football</h6>
+              <small class="upload-date">1 week ago</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 mb-2 mb-sm-3 mb-md-4 mb-xl-0">
+        <div class="card-video__wrapper">
+          <div class="card-video__media">
+            <picture>
+              <img width="500" height="325" loading="lazy" src="https://sinaischoolsnew.smartwebsitedesign.com/media/sinai-documentaries.jpg" alt="Sinai Documentaries"/>
+            </picture>
+            <a href="https://www.youtube.com/watch?v=D0UnqGm_miA" class="btn-play" data-fancybox=""><i class="fa fa-play"></i></a>
+          </div>
+          <div class="card-video__title">
+            <h3 class="h5 mb-2 mb-lg-3">Lorem Ismus</h3>
+            <div class="card-video__footer">
+              <h4 class="h6">Football</h6>
+              <small class="upload-date">1 week ago</small>
+            </div>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+    {% comment %} <div class="btn-wrap text-center pt-3 pt-lg-4">
+      <a href="#" class="btn btn-primary btn-dark px-3">Load More</a>
+    </div> {% endcomment %}
+  </div>
+</section>
+{% endblock main %}
