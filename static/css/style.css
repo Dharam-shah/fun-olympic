@@ -151,6 +151,7 @@ a {
 
 .banner-slider__item img {
     width: 100%;
+    object-fit: cover;
 }
 
 /* Sign Up Form */
@@ -595,7 +596,7 @@ a {
     }
 }
 
-.site-header {
+/* .site-header {
     padding: 0.75rem 0;
     /* position: fixed; */
     top: 0;
@@ -603,6 +604,22 @@ a {
     right: 0;
     z-index: 10;
     transition: .2s ease-in-out all;
+} */
+
+/* @media (min-width: 992px) {
+    .site-header {
+      padding: 1.5rem 0;
+    }
+  }
+  
+  @media (min-width: 1440px) {
+    .site-header {
+      padding: 2rem 0;
+    }
+  } */
+
+.sticky-header {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 .sticky-header {
@@ -622,6 +639,52 @@ a {
 ::selection {
     color: #fff;
     background-color: #000;
+}
+
+@media (max-width: 992px) {
+    .form-inline .form-control {
+        width: 90%;
+        margin-right: 10px;
+    }
+
+    .form-inline .input-group-append {
+        width: 8%;
+    }
+}
+
+@media (max-width: 576px) {
+    .form-inline .form-control {
+        width: 80%;
+        margin-right: 8px;
+    }
+
+    .form-inline .input-group-append {
+        width: 15%;
+    }
+}
+
+.profile-card .profile-card__content {
+    padding: 1rem 1.5rem;
+    border: 1px solid #333;
+    background-color: #fff;
+    border-color: rgba(0, 0, 0, 0.075);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    transition: all .3s;
+}
+
+.profile-card .profile-card__content .profile-card__top {
+    display: flex;
+    align-items: center;
+}
+
+.profile-card .profile-card__content .user-detail span {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 14px;
+}
+
+.profile-card .profile-pic img {
+    width: 100px;
+    height: 100px;
 }
 
 @media (min-width: 992px) {
