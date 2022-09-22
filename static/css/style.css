@@ -596,7 +596,7 @@ a {
     }
 }
 
-/* .site-header {
+.site-header {
     padding: 0.75rem 0;
     /* position: fixed; */
     top: 0;
@@ -604,7 +604,7 @@ a {
     right: 0;
     z-index: 10;
     transition: .2s ease-in-out all;
-} */
+}
 
 /* @media (min-width: 992px) {
     .site-header {
