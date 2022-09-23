@@ -20,9 +20,9 @@
         <div class="card-video__wrapper">
           <div class="card-video__media">
             <picture>
-              <img width="500" height="325" loading="lazy" src="https://sinaischoolsnew.smartwebsitedesign.com/media/sinai-documentaries.jpg" alt="Sinai Documentaries"/>
+              <img width="500" height="325" loading="lazy" src="{{ game.thumbnail_image.url }}" alt="Sinai Documentaries"/>
             </picture>
-            <a href="https://www.youtube.com/watch?v=D0UnqGm_miA" class="btn-play" data-fancybox=""><i class="fa fa-play"></i></a>
+            <a href="{{ game.video_url }}" class="btn-play" data-fancybox=""><i class="fa fa-play"></i></a>
           </div>
           <div class="card-video__title">
             <h3 class="h5 mb-2 mb-lg-3">{{ game.title }}</h3>
