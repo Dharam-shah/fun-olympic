@@ -1,7 +1,5 @@
 from django.views.generic import ListView
 from apps.funolympic.models import Category, OlympicGame 
-from django.shortcuts import render
-
 
 # Create your views here.
 class OnlympicGameView(ListView):
@@ -25,5 +23,5 @@ class CategoryWiseGameView(ListView):
         return context
 
 
-def user_profile(request):
-    return render(request, "user/user_profile.html")
+# def user_profile(request):
+#     return render(request, "user/user_profile.html")
