@@ -59,7 +59,7 @@
       {% for category in categories %}
       <div class="col-lg-4 item">
         <div class="item-content">
-          <a href="#"><img src="{{ category.image.url }}" class="img-responsive center-block"></a>
+          <a href="{% url 'game-category' category.id %}"><img src="{{ category.image.url }}" class="img-responsive center-block"></a>
           <h4 class="h5 text-center">{{ category.title }}</h4>
         </div>
       </div>

@@ -14,10 +14,15 @@ class OnlympicGameView(ListView):
         context['categories'] = Category.objects.all()
         return context
 
-class CategoryDetailView(ListView):
-    model = Category
-    context_object_name = 'category_lists'
+
+class CategoryWiseGameView(ListView):
+    model = OlympicGame
     template_name = 'homepage/game_category.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["games"] = OlympicGame.objects.filter(category=Category.objects.get(id=self.kwargs['id']))
+        return context
 
 
 def user_profile(request):
