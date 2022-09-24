@@ -26,7 +26,7 @@
     </header>
     <div class="row mb-3">
       {% for game in game_lists %}
-      <div class="col-xl-3 col-lg-4 col-md-6 mb-2 mb-sm-3 mb-md-4 mb-xl-0">
+      <div class="col-xl-3 col-lg-4 col-md-6 mb-2 mb-sm-3 mb-md-4">
         <div class="card-video__wrapper">
           <div class="card-video__media">
             <picture>
@@ -46,7 +46,11 @@
       {% endfor %}
     </div>
     <div class="btn-wrap text-center pt-3 pt-lg-4">
-      <a href="#" class="btn btn-primary btn-dark px-3">Load More</a>
+      <a href="javascript:void(0);" class="btn btn-primary btn-dark load-more px-5">Load More
+        <span class="loading">
+          <span></span>
+        </span>
+      </a>
     </div>
   </div>
 </section>
