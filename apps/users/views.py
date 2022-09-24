@@ -1,11 +1,11 @@
-from pipes import Template
 from django.shortcuts import render
 from django.views.generic import CreateView, TemplateView
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse
 from django.shortcuts import redirect
 from django.contrib.messages.views import SuccessMessageMixin
-from .forms import SignUpForm
+from django.views.generic.edit import FormView, UpdateView
+from .forms import SignUpForm, UpdateProfile
 from .models import User
 
 # # Create your views here.
@@ -41,3 +41,13 @@ class UserLogoutView(LogoutView):
 class UserProfile(TemplateView):
     model = User
     template_name = 'user/user_profile.html'
+
+
+class UpdateProfile(UpdateView):
+    model = User
+    form_class = UpdateProfile
+    template_name = 'user/update_profile.html'
+    
+    def get_success_url(self ,*args, **kwargs):
+        return reverse('profile')
+
