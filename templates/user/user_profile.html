@@ -11,19 +11,24 @@
                     {% endif %}
                     " alt="Image" height="512" class="profile-image1 img-fluid rounded-circle" width="512">
                 </div>
-                <div class="user-detail pl-2 pl-sm-3 pl-lg-4">
-                    <h2 class="h5">{{ request.user.first_name }} {{ request.user.last_name }}</h2>
-                    <span>{{ request.user.date_joined|date:"M d, Y" }}</span>
+                <div class="user-detail pl-2 pl-sm-3 pl-lg-4 d-flex justify-content-between w-100">
+                    <div class="joined-date">
+                        <h2 class="h5">{{ request.user.first_name }} {{ request.user.last_name }}</h2>
+                        <span>{{ request.user.email }}</span>
+                    </div>
+                    <div class="joined-date">
+                        <a class="btn btn-outline-secondary" href="{% url 'update-profile' request.user.id %}" role="button">Update profile</a>
+                    </div>
                 </div>
             </div>
             <div class="profile-tab">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
-                      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Profile</a>
+                      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Choose video category</a>
                     </li>
                    
                     {% comment %} <li class="nav-item">
-                      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+                      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Update profile</a>
                     </li> {% endcomment %}
                 </ul>
 
@@ -36,5 +41,4 @@
         </div>
     </div>
 </section>
-
 {% endblock main %}

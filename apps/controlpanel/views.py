@@ -6,7 +6,7 @@ from .forms import CategoryForm, GameCreateForm
 
 # Create your views here.
 class DashboardOverView(TemplateView):
-    template_name = 'controlpanel/base.html'
+    template_name = 'controlpanel/overview.html'
 
 
 class GameListView(ListView):
