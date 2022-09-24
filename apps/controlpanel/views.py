@@ -8,6 +8,13 @@ from .forms import CategoryForm, GameCreateForm
 class DashboardOverView(TemplateView):
     template_name = 'controlpanel/overview.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)     
+        context['total_game'] = OlympicGame.objects.all().count()
+        context['total_category'] = Category.objects.all().count()
+        context['total_user'] = User.objects.all().count()
+        return context
+
 
 class GameListView(ListView):
     model = OlympicGame
