@@ -4,11 +4,16 @@
         <div class="profile-card__content">
             <div class="profile-card__top mb-2 mb-sm-3 mb-lg-4">
                 <div class="profile-pic">
-                    <img alt="User Pic" src="{% static 'images/profile-pic.png' %}" alt="Image" height="512" class="profile-image1 img-fluid rounded-circle" width="512">
+                    <img alt="User Pic" src="
+                    {% if request.user.image %} {{ request.user.image.url }} 
+                    {% else %} 
+                    {% static 'images/user/user-profile.png' %}
+                    {% endif %}
+                    " alt="Image" height="512" class="profile-image1 img-fluid rounded-circle" width="512">
                 </div>
                 <div class="user-detail pl-2 pl-sm-3 pl-lg-4">
-                    <h2 class="h5">Test Member</h2>
-                    <span>Joined - 2022-09-23</span>
+                    <h2 class="h5">{{ request.user.first_name }} {{ request.user.last_name }}</h2>
+                    <span>{{ request.user.date_joined|date:"M d, Y" }}</span>
                 </div>
             </div>
             <div class="profile-tab">

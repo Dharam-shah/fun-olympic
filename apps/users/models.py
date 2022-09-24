@@ -45,6 +45,10 @@ class User(AbstractBaseUser, PermissionsMixin):
             'unique': _('A user with this email already exists.'),
         }
     )
+    image = models.ImageField(
+        upload_to='user-img',
+        default='images/user/user-profile.png'
+    )
     is_staff = models.BooleanField(
         default=False,
         help_text="Designates whether the user can log into this admin site.",

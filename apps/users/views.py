@@ -1,12 +1,12 @@
+from pipes import Template
 from django.shortcuts import render
-from django.views.generic import CreateView
-from django.contrib.auth.views import LoginView, PasswordResetView
+from django.views.generic import CreateView, TemplateView
+from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse
 from django.shortcuts import redirect
 from django.contrib.messages.views import SuccessMessageMixin
-from django.contrib.auth import views as auth_views
 from .forms import SignUpForm
-
+from .models import User
 
 # # Create your views here.
 class SignUpView(CreateView):
@@ -32,16 +32,12 @@ class LogInView(SuccessMessageMixin, LoginView):
         return reverse('homepage')
 
 
-# class ResetPasswordView(PasswordResetView):
-#     template_name='account/reset_password.html'
+class UserLogoutView(LogoutView):
 
-#     def form_valid(self, form, *args, **kwargs):
-#         # email = form.cleaned_data.get('email')
-#         # try:
-#         #     user = UserDetail.objects.get(user__email=email)
-#         #     if user.is_email_verified == False:
-#         #         messages.error(self.request, 'Your account is not verified')
-#         #         return super().form_invalid(form, *args, **kwargs)
-#         # except:
-#         #     return super().form_valid(form)
-#         return super().form_valid(form)
+    def get_success_url(self ,*args, **kwargs):
+        return reverse('homepage')
+
+
+class UserProfile(TemplateView):
+    model = User
+    template_name = 'user/user_profile.html'

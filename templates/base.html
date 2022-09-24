@@ -21,8 +21,6 @@
 
     <link rel="stylesheet" href="{% static 'vendor/slick/slick.css' %}">
     <link rel="stylesheet" href="{% static 'vendor/fancybox/jquery.fancybox.min.css' %}">
-
-    {% comment %} <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script> {% endcomment %}
   </head>
 
   <body>
@@ -45,6 +43,47 @@
              </div>
             </form>
             <ul class="navbar-nav ml-auto align-items-center">
+              {% if request.user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link" href="
+                {% if request.path == '/' %}#card-video__block {% endif %}
+                {% if request.path == '/account/profile/' %} {% url 'homepage' %}#card-video__block {% endif %}
+                {% if request.path == '/game-category/1' %} {% url 'homepage' %}#card-video__block {% endif %}
+                {% if request.path == '/game-category/2' %} {% url 'homepage' %}#card-video__block {% endif %}
+                {% if request.path == '/game-category/3' %} {% url 'homepage' %}#card-video__block {% endif %}
+                {% if request.path == '/game-category/4' %} {% url 'homepage' %}#card-video__block {% endif %}
+                {% if request.path == '/game-category/5' %} {% url 'homepage' %}#card-video__block {% endif %}
+                ">Featured videos</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="
+                {% if request.path == '/' %}#categories {% endif %}
+                {% if request.path == '/account/profile/' %} {% url 'homepage' %}#categories {% endif %}
+                {% if request.path == '/game-category/1' %} {% url 'homepage' %}#categories {% endif %}
+                {% if request.path == '/game-category/2' %} {% url 'homepage' %}#categories {% endif %}
+                {% if request.path == '/game-category/3' %} {% url 'homepage' %}#categories {% endif %}
+                {% if request.path == '/game-category/4' %} {% url 'homepage' %}#categories {% endif %}
+                {% if request.path == '/game-category/5' %} {% url 'homepage' %}#categories {% endif %}
+                ">Featured categories</span></a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ request.user.first_name }}
+                   <img src="
+                   {% if request.user.image %} {{ request.user.image.url }} 
+                   {% else %} 
+                   {% static 'images/user/user-profile.png' %}
+                   {% endif %}
+                   " width="32" height="32" class="rounded-circle img-fluid">
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
+                  {% if request.user.is_superuser or request.user.is_staff %}
+                    <a class="dropdown-item" href="{% url 'overview' %}">Control Panel</a>
+                  {% endif %}
+                  <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                </div>
+              </li>
+              {% else %}
               <li class="nav-item active">
                 <a class="nav-link" href="{% url 'homepage' %}">Home <span class="sr-only">(current)</span></a>
               </li>
@@ -54,15 +93,7 @@
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'login' %}">Login</a>
               </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Test User
-                   <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="32" height="32" class="rounded-circle img-fluid">
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="{% url 'user-profile' %}">Profile</a>
-                  <a class="dropdown-item" href="#">Logout</a>
-                </div>
-              </li>
+              {% endif %}
             </ul>
           </div>
         </nav>
@@ -75,9 +106,6 @@
       <div class="container">
         <div class="copyright text-center">
           <span>Copyright ©2022 Fun OLympic | All rights reserved<a href="#"></a></span>
-          {% comment %} <div class="email">
-            <a href="#">www.tender.com</a>
-          </div> {% endcomment %}
         </div>
       </div>
     </footer>
@@ -93,20 +121,5 @@
     <script src="{% static 'vendor/slick/slick.min.js' %}"></script>
     <script src="{% static 'vendor/fancybox/jquery.fancybox.min.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
-
-    {% comment %} <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-    {% if messages %}
-      {% for message in messages %}
-          <script>
-            $(function () {
-              // make it not dissappear
-              toastr.options.closeDuration = 9500;
-              toastr.options.positionClass = 'toast-bottom-right';
-              toastr.{{message.tags}}('{{message}}');
-            });
-          </script>
-      {% endfor %}
-    {% endif %} {% endcomment %}
-
   </body>
 </html>
