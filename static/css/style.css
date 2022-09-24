@@ -140,7 +140,7 @@ a {
     left: 0;
     height: 100%;
     width: 100%;
-    
+
     z-index: -1;
 }
 
@@ -180,6 +180,17 @@ a {
     .password-reset {
         padding: 7rem 0;
     }
+}
+
+.card-video__block [class^="col-"] {
+    display: none;
+}
+
+.card-video__block [class^="col-"]:nth-child(1),
+.card-video__block [class^="col-"]:nth-child(2),
+.card-video__block [class^="col-"]:nth-child(3),
+.card-video__block [class^="col-"]:nth-child(4) {
+    display: block;
 }
 
 .card-video__block .card-video__wrapper {
@@ -587,7 +598,16 @@ a {
     color: black;
     background-color: white;
     border-color: #000;
-    font-size: 18px;
+    font-size: 18px
+}
+
+.btn-dark:focus{
+    box-shadow: none;
+}
+
+.btn-dark:hover .loading span:before,
+.btn-dark:hover .loading span::after {
+    border-color: #fff;
 }
 
 @media (min-width: 992px) {
@@ -692,4 +712,107 @@ a {
         height: 320px;
         object-fit: cover;
     }
+}
+
+.loading {
+    display: none;
+    height: 24px;
+    width: 24px;
+    margin: 0 auto;
+    position: relative;
+    vertical-align: middle;
+    margin-left: 5px;
+    transition: all .3s;
+    animation: loader1 3s linear infinite;
+}
+
+.loading span {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    clip: rect(12px, 24px, 0);
+    animation: loader2 1.5s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+}
+
+@keyframes loader1 {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes loader2 {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes loader3 {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading span::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    border: 2px solid transparent;
+    border-top: 2px solid #000;
+    border-radius: 50%;
+    animation: loader3 1.5s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+
+}
+
+.loading span::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #000;
+    border-radius: 50%;
+}
+
+.btn-wrap .show-loader{
+    width: 32px;
+    background-color: #000;
+    text-indent: -9999px;
+}
+
+.btn-wrap .show-loader .loading{
+    display: block;
+}
+
+.btn-wrap .loaded{
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    /* transition: all .3s; */
 }
