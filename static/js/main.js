@@ -1,6 +1,20 @@
 (function ($) {
     $(document).ready(function () {
 
+        /* smooth scroll*/
+        $('a.js-has-smooth[href*="#"]:not([href="#"])').click(function () {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                var target = $(this.hash);
+                target = target.length ? target : jQuery('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html, body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+
         $('[data-fancybox]').fancybox();
 
         // $(window).scroll(function () {
@@ -56,42 +70,42 @@
             ],
         });
 
-        // let loadMoreBtn = document.querySelector('#load-more');
-        // let currentItem = 4;
+        let loadMoreBtn = document.querySelector('#load-more');
+        let currentItem = 4;
 
-        // loadMoreBtn.onclick = () => {
-        //     let boxes = [...document.querySelectorAll('.card-video__block [class^="col-"]')];
-        //     for (var i = currentItem; i < currentItem + 4; i++) {
-        //         boxes[i].style.display = 'inline-block';
-        //     }
-        //     currentItem += 4;
-
-        //     if (currentItem >= boxes.length) {
-        //         loadMoreBtn.style.display = 'none';
-        //     }
-        // }
-
-        var loadMore = document.querySelector('.load-more');
-
-        var currentItem = 4;
-        loadMore.addEventListener('click', (e) => {
-            var boxes = [...document.querySelectorAll('.card-video__block [class^="col-"]')];
-            e.target.classList.add('show-loader');
-
-            for (let i = currentItem; i < currentItem + 4; i++) {
-                setTimeout(function time() {
-                    e.target.classList.remove('show-loader');
-                    if (boxes[i]) {
-                        boxes[i].style.display = 'block';
-                    }
-                }, 3000);
+        loadMoreBtn.onclick = () => {
+            let boxes = [...document.querySelectorAll('.card-video__block [class^="col-"]')];
+            for (var i = currentItem; i < currentItem + 4; i++) {
+                boxes[i].style.display = 'inline-block';
             }
             currentItem += 4;
 
             if (currentItem >= boxes.length) {
-                event.target.classList.add('loaded');
+                loadMoreBtn.style.display = 'none';
             }
-        });
+        }
+
+        // var loadMore = document.querySelector('.load-more');
+
+        // var currentItem = 4;
+        // loadMore.addEventListener('click', (e) => {
+        //     var boxes = [...document.querySelectorAll('.card-video__block [class^="col-"]')];
+        //     e.target.classList.add('show-loader');
+
+        //     for (let i = currentItem; i < currentItem + 4; i++) {
+        //         setTimeout(function time() {
+        //             e.target.classList.remove('show-loader');
+        //             if (boxes[i]) {
+        //                 boxes[i].style.display = 'block';
+        //             }
+        //         }, 500);
+        //     }
+        //     currentItem += 4;
+
+        //     if (currentItem >= boxes.length) {
+        //         event.target.classList.add('loaded');
+        //     }
+        // });
 
     });
 }(jQuery));

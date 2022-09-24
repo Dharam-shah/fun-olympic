@@ -31,11 +31,16 @@
 
   <body>
     <div class="wrapper d-flex">
-      <nav id="sidebar">
-        <div class="px-4 pt-3">
-          <h2><a href="{% url 'homepage' %}" class="text-secondary">Fun Olympic</a></h2>
-          <ul class="list-unstyled components mt-4">
-            <li class="{% if request.path == '/controlpanel/overview/' %} active {% endif %}">
+      <nav id="sidebar" class="sidebar sidebar-alt">
+        <div class="px-3 px-lg-4 pt-3 pt-lg-4">
+          <div class="logo text-center">
+            {% comment %} <h2><a href="{% url 'homepage' %}" class="text-secondary">Fun Olympic</a></h2> {% endcomment %}
+            <a href="{% url 'homepage' %}">
+              <img class="img-fluid mx-auto" src="{% static 'images/site-logo.png' %}" width="604" height="275" alt="Logo" loading="lazy">
+            </a>
+          </div>
+          <ul class="list-unstyled components pt-3 pt-lg-4">
+            <li class="{% if request.path == '/controlpanel/overview/' %}active {% endif %}">
                 <a href="{% url 'overview' %}"><i class="fa fa-home pr-2"></i>Overview</a>
             </li>
             <li>
@@ -101,12 +106,11 @@
       <div class="full-width">
         <nav class="navbar navbar-expand-lg bg-dark py-3">
           <div class="container">
-            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+            <button type="button" id="sidebarCollapse" class="btn btn-primary btn-gray">
               <i class="fa fa-bars"></i>
               <span class="sr-only">Toggle Menu</span>
             </button>
-            <button
-              class="btn btn-dark d-inline-block d-lg-none ml-auto"
+            <button class="btn btn-dark d-inline-block d-lg-none ml-auto"
               type="button"
               data-toggle="collapse"
               data-target="#navbarSupportedContent"
