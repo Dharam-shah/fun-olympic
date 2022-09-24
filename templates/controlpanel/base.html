@@ -33,11 +33,11 @@
     <div class="wrapper d-flex">
       <nav id="sidebar" class="sidebar sidebar-alt">
         <div class="px-3 px-lg-4 pt-3 pt-lg-4">
-          <div class="logo text-center">
-            {% comment %} <h2><a href="{% url 'homepage' %}" class="text-secondary">Fun Olympic</a></h2> {% endcomment %}
-            <a href="{% url 'homepage' %}">
+          <div class="logo">
+            <h2><a href="{% url 'homepage' %}">Fun Olympic</a></h2>
+            {% comment %} <a href="{% url 'homepage' %}">
               <img class="img-fluid mx-auto" src="{% static 'images/site-logo.png' %}" width="604" height="275" alt="Logo" loading="lazy">
-            </a>
+            </a> {% endcomment %}
           </div>
           <ul class="list-unstyled components pt-3 pt-lg-4">
             <li class="{% if request.path == '/controlpanel/overview/' %}active {% endif %}">
