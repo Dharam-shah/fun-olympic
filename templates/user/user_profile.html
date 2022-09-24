@@ -2,7 +2,7 @@
 <section class="profile-card py-3 py-sm-4 py-lg-5">
     <div class="container">
         <div class="profile-card__content">
-            <div class="profile-card__top mb-2 mb-sm-3 mb-lg-4">
+            <div class="profile-card__top mb-3 mb-lg-4">
                 <div class="profile-pic">
                     <img alt="User Pic" src="
                     {% if request.user.image %} {{ request.user.image.url }} 
@@ -11,12 +11,12 @@
                     {% endif %}
                     " alt="Image" height="512" class="profile-image1 img-fluid rounded-circle" width="512">
                 </div>
-                <div class="user-detail pl-2 pl-sm-3 pl-lg-4 d-flex justify-content-between w-100">
+                <div class="user-detail pl-3 pl-lg-4 w-100">
                     <div class="joined-date">
                         <h2 class="h5">{{ request.user.first_name }} {{ request.user.last_name }}</h2>
                         <span>{{ request.user.email }}</span>
                     </div>
-                    <div class="joined-date">
+                    <div class="joined-date pt-2 pt-sm-0">
                         <a class="btn btn-outline-secondary" href="{% url 'update-profile' request.user.id %}" role="button">Update profile</a>
                     </div>
                 </div>
@@ -32,8 +32,45 @@
                     </li> {% endcomment %}
                 </ul>
 
-                <div class="tab-content pt-2 pt-lg-3" id="myTabContent">
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">Profile</div>
+                <div class="tab-content pt-3 pt-lg-4" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 mb-3 mb-lg-4">
+                                <article class="card-overlay">
+                                    <picture class="card-overlay__media">
+                                        <img class="img-fluid mx-auto" src="{% static 'images/card-overlay-media-img01.jpg' %}" width="521" height="340" alt="Logo"   loading="lazy">
+                                    </picture> <!-- /.card-overlay__media -->
+                                    <div class="card-overlay__content text-white text-center">
+                                        <h3 class="mb-0">Football</h3>
+                                    </div>
+                                    <h3 class="card-overlay__title text-white text-center mb-2">Football</h3>
+                                </article> <!-- /.card-overlay -->
+                            </div>
+                            <div class="col-lg-4 col-md-6 mb-3 mb-lg-4">
+                                <article class="card-overlay">
+                                    <picture class="card-overlay__media">
+                                        <img class="img-fluid mx-auto" src="{% static 'images/card-overlay-media-img01.jpg' %}" width="521" height="340" alt="Logo"   loading="lazy">
+                                    </picture> <!-- /.card-overlay__media -->
+                                    <div class="card-overlay__content text-white text-center">
+                                        <h3 class="mb-0">Football</h3>
+                                    </div>
+                                    <h3 class="card-overlay__title text-white text-center mb-2">Football</h3>
+                                </article> <!-- /.card-overlay -->
+                            </div>
+                            <div class="col-lg-4 col-md-6 mb-3 mb-lg-4">
+                                <article class="card-overlay">
+                                    <picture class="card-overlay__media">
+                                        <img class="img-fluid mx-auto" src="{% static 'images/card-overlay-media-img01.jpg' %}" width="521" height="340" alt="Logo"   loading="lazy">
+                                    </picture> <!-- /.card-overlay__media -->
+                                    <div class="card-overlay__content text-white text-center">
+                                        <h3 class="mb-0">Football</h3>
+                                    </div>
+                                    <h3 class="card-overlay__title text-white text-center mb-2">Football</h3>
+                                </article> <!-- /.card-overlay -->
+                            </div>
+                        </div>
+                     </div>
+                </div>
                    
                     {% comment %} <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div> {% endcomment %}
                 </div>
