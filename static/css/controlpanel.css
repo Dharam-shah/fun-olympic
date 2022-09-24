@@ -89,7 +89,7 @@ a {
     margin-left: 0;
 }
 
-.sidebar .logo h2 a{
+.sidebar .logo h2 a {
     color: #fff;
     text-decoration: none;
 }
@@ -247,12 +247,12 @@ a[data-toggle="collapse"] {
     font-size: 36px;
 }
 
-.overview [class^="col-"]:nth-child(n) .box:hover{
+.overview [class^="col-"]:nth-child(n) .box:hover {
     transform: translateY(-0.1875rem);
 }
 
 .overview [class^="col-"]:nth-child(n) .box:hover .box-content,
-.overview [class^="col-"]:nth-child(n) .box:hover .box-icon{
+.overview [class^="col-"]:nth-child(n) .box:hover .box-icon {
     color: #000;
 }
 
