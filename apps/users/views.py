@@ -7,6 +7,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic.edit import FormView, UpdateView
 from .forms import SignUpForm, UpdateProfile
 from .models import User
+from apps.funolympic.forms import FeaturedCategoryForm
 
 # # Create your views here.
 class SignUpView(CreateView):
@@ -38,9 +39,24 @@ class UserLogoutView(LogoutView):
         return reverse('homepage')
 
 
-class UserProfile(TemplateView):
+class UserProfile(FormView):
     model = User
+    form_class = FeaturedCategoryForm
     template_name = 'user/user_profile.html'
+
+    def get_success_url(self ,*args, **kwargs):
+        return reverse('profile')
+
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+        if form.is_valid():
+            import ipdb; ipdb.set_trace()
+            
+            form.save()
+        else:
+            return self.form_invalid(form)
+
+        return reverse('profile')
 
 
 class UpdateProfile(UpdateView):

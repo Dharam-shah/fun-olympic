@@ -112,3 +112,20 @@ class OlympicGame(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class FeaturedCategory(models.Model):
+    user = models.OneToOneField(
+        User, 
+        on_delete=models.CASCADE, 
+        related_name='user_featuredcategory',
+        blank=True, 
+    )
+    category = models.ManyToManyField(
+        Category, 
+        related_name='category_featured',
+        blank=True, 
+    )
+
+    def __str__(self):
+        return self.user.first_name
