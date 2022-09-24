@@ -21,8 +21,6 @@
 
     <link rel="stylesheet" href="{% static 'vendor/slick/slick.css' %}">
     <link rel="stylesheet" href="{% static 'vendor/fancybox/jquery.fancybox.min.css' %}">
-
-    {% comment %} <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script> {% endcomment %}
   </head>
 
   <body>
@@ -70,7 +68,12 @@
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ request.user.first_name }}
-                   <img src="{% static 'images/user/user-profile.png' %}" width="32" height="32" class="rounded-circle img-fluid">
+                   <img src="
+                   {% if request.user.image %} {{ request.user.image.url }} 
+                   {% else %} 
+                   {% static 'images/user/user-profile.png' %}
+                   {% endif %}
+                   " width="32" height="32" class="rounded-circle img-fluid">
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
@@ -103,9 +106,6 @@
       <div class="container">
         <div class="copyright text-center">
           <span>Copyright ©2022 Fun OLympic | All rights reserved<a href="#"></a></span>
-          {% comment %} <div class="email">
-            <a href="#">www.tender.com</a>
-          </div> {% endcomment %}
         </div>
       </div>
     </footer>
@@ -121,20 +121,5 @@
     <script src="{% static 'vendor/slick/slick.min.js' %}"></script>
     <script src="{% static 'vendor/fancybox/jquery.fancybox.min.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
-
-    {% comment %} <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-    {% if messages %}
-      {% for message in messages %}
-          <script>
-            $(function () {
-              // make it not dissappear
-              toastr.options.closeDuration = 9500;
-              toastr.options.positionClass = 'toast-bottom-right';
-              toastr.{{message.tags}}('{{message}}');
-            });
-          </script>
-      {% endfor %}
-    {% endif %} {% endcomment %}
-
   </body>
 </html>
