@@ -248,7 +248,7 @@ a[data-toggle="collapse"] {
 }
 
 .overview [class^="col-"]:nth-child(n) .box:hover {
-    transform: translateY(-0.1875rem);
+    transform: translateY(-8px);
 }
 
 .overview [class^="col-"]:nth-child(n) .box:hover .box-content,
@@ -286,3 +286,8 @@ a[data-toggle="collapse"] {
 .overview [class^="col-"]:nth-child(3) .box--border-left:before {
     background: #2596be;
 }
+
+/* textarea.form-control {
+    resize: none;
+    height: 7.5rem;
+} */
