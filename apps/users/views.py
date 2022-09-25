@@ -48,15 +48,11 @@ class UserProfile(FormView):
         return reverse('profile')
 
     def post(self, request, *args, **kwargs):
-        form = self.get_form()
+        form = FeaturedCategoryForm
         if form.is_valid():
             import ipdb; ipdb.set_trace()
-            
             form.save()
-        else:
-            return self.form_invalid(form)
-
-        return reverse('profile')
+        return super().post(request, *args, **kwargs)
 
 
 class UpdateProfile(UpdateView):
@@ -66,4 +62,3 @@ class UpdateProfile(UpdateView):
     
     def get_success_url(self ,*args, **kwargs):
         return reverse('profile')
-
