@@ -205,6 +205,11 @@ a {
     height: 100%;
     background-color: transparent;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    transition: all .3s;
+}
+
+.card-video__wrapper:hover{
+    transform: translateY(-8px);
 }
 
 .card-video__block .card-video__wrapper .card-video__media {
@@ -568,6 +573,10 @@ a {
     }
 }
 
+/* textarea {
+    resize: none;
+} */
+
 .form-control:focus {
     box-shadow: none;
     border-color: #000;
@@ -700,14 +709,14 @@ a {
     align-items: center;
 }
 
-.profile-card .profile-card__content .user-detail{
+.profile-card .profile-card__content .user-detail {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
 }
 
 @media (min-width: 576px) {
-    .profile-card .profile-card__content .user-detail{
+    .profile-card .profile-card__content .user-detail {
         justify-content: space-between;
     }
 }
@@ -717,7 +726,7 @@ a {
     font-size: 16px;
 }
 
-.profile-card .profile-card__content .user-detail h2{
+.profile-card .profile-card__content .user-detail h2 {
     text-transform: capitalize;
 }
 
@@ -987,4 +996,53 @@ a {
 .card-overlay a:focus {
     color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
+}
+
+.back-to-top {
+    display: inline-block;
+    background-color: #fff;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 4px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    transition: background-color .3s,
+        opacity .5s, visibility .5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+    border: 1px solid #000;
+}
+
+.back-to-top::after {
+    content: "\f077";
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 46px;
+    color: #000;
+}
+
+.back-to-top:hover {
+    cursor: pointer;
+    color: #fff;
+    background-color: #333;
+    text-decoration: none;
+    border-color: transparent;
+}
+
+.back-to-top:hover::after {
+    color: #fff;
+}
+
+.back-to-top:active {
+    background-color: #555;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
 }
