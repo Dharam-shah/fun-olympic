@@ -1,4 +1,8 @@
-{% extends 'base.html' %} {% load static %} {% block main %}
+{% extends 'base.html' %} {% load static %} {% load crispy_forms_tags %} 
+{% block extrahead %}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.0/css/selectize.bootstrap4.min.css" rel="stylesheet"/>
+{% endblock extrahead %} 
+{% block main %}
 <section class="profile-card py-3 py-sm-4 py-lg-5">
     <div class="container">
         <div class="profile-card__content">
@@ -21,61 +25,50 @@
                     </div>
                 </div>
             </div>
-            <div class="profile-tab">
+            {% comment %} <div class="profile-tab">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
-                      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Choose video category</a>
+                      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Video category</a>
                     </li>
                    
-                    {% comment %} <li class="nav-item">
+                    <li class="nav-item">
                       <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Update profile</a>
-                    </li> {% endcomment %}
+                    </li>
                 </ul>
 
                 <div class="tab-content pt-3 pt-lg-4" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        {% comment %} <div class="row">
-                            <div class="col-lg-4 col-md-6 mb-3 mb-lg-4">
-                                <article class="card-overlay">
-                                    <picture class="card-overlay__media">
-                                        <img class="img-fluid mx-auto" src="{% static 'images/card-overlay-media-img01.jpg' %}" width="521" height="340" alt="Logo"   loading="lazy">
-                                    </picture> <!-- /.card-overlay__media -->
-                                    <div class="card-overlay__content text-white text-center">
-                                        <h3 class="mb-0">Football</h3>
-                                    </div>
-                                    <h3 class="card-overlay__title text-white text-center mb-2">Football</h3>
-                                </article> <!-- /.card-overlay -->
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="">
+                                <label>Please choose your intrested category:</label>
+                                {{ form|crispy }}
                             </div>
-                            <div class="col-lg-4 col-md-6 mb-3 mb-lg-4">
-                                <article class="card-overlay">
-                                    <picture class="card-overlay__media">
-                                        <img class="img-fluid mx-auto" src="{% static 'images/card-overlay-media-img01.jpg' %}" width="521" height="340" alt="Logo"   loading="lazy">
-                                    </picture> <!-- /.card-overlay__media -->
-                                    <div class="card-overlay__content text-white text-center">
-                                        <h3 class="mb-0">Football</h3>
-                                    </div>
-                                    <h3 class="card-overlay__title text-white text-center mb-2">Football</h3>
-                                </article> <!-- /.card-overlay -->
+                            <div class="register-btn text-center">    
+                                <button type="Submit" class="btn btn-primary px-4">Save</button>
                             </div>
-                            <div class="col-lg-4 col-md-6 mb-3 mb-lg-4">
-                                <article class="card-overlay">
-                                    <picture class="card-overlay__media">
-                                        <img class="img-fluid mx-auto" src="{% static 'images/card-overlay-media-img01.jpg' %}" width="521" height="340" alt="Logo"   loading="lazy">
-                                    </picture> <!-- /.card-overlay__media -->
-                                    <div class="card-overlay__content text-white text-center">
-                                        <h3 class="mb-0">Football</h3>
-                                    </div>
-                                    <h3 class="card-overlay__title text-white text-center mb-2">Football</h3>
-                                </article> <!-- /.card-overlay -->
-                            </div>
-                        </div> {% endcomment %}
+                        </form>
                      </div>
                 </div>
-                   
-                    {% comment %} <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div> {% endcomment %}
+                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
                 </div>
-            </div>
+            </div> {% endcomment %}
         </div>
     </div>
 </section>
 {% endblock main %}
+
+{% block js %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microplugin/0.0.2/microplugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.0/js/selectize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.0/js/standalone/selectize.min.js"></script>
+<script>
+    $("#id_category").selectize({
+      delimiter: ",",
+      persist: false,
+      plugins: ["remove_button"],
+      placeholder: "Click here to select...",
+    });
+</script>
+{% endblock  %}
+

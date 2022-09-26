@@ -7,12 +7,10 @@ from apps.users.models import User
 
 # Create your models here.
 class Category(models.Model):
-    user = models.ForeignKey(
-        User, 
-        on_delete=models.CASCADE, 
+    user = models.ManyToManyField(
+        User,
         related_name='user',
-        blank=True, 
-        null=True
+        blank=True
     )
     title = models.CharField(
         _('Title'),
@@ -112,3 +110,26 @@ class OlympicGame(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class FeaturedCategory(models.Model):
+    user = models.OneToOneField(
+        User, 
+        on_delete=models.CASCADE, 
+        related_name='user_featuredcategory',
+        blank=True, 
+    )
+    category = models.ManyToManyField(
+        Category, 
+        related_name='category_featured',
+        blank=True, 
+    )
+
+    def __str__(self):
+        return f'{self.user.id}'
+
+    # def save(self, *args, **kwargs):
+    #     self.user = self.request.user
+    #     inst = super(FeaturedCategory, self).save(*args, **kwargs)
+    #     return inst
+
