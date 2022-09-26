@@ -9,6 +9,12 @@ a {
     transition: .2s all ease-in-out;
 }
 
+@media (min-width:1440px) {
+    .container {
+        max-width: 1310px;
+    }
+}
+
 .btn-play {
     width: 3rem;
     height: 3rem;

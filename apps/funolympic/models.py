@@ -7,12 +7,10 @@ from apps.users.models import User
 
 # Create your models here.
 class Category(models.Model):
-    user = models.ForeignKey(
-        User, 
-        on_delete=models.CASCADE, 
+    user = models.ManyToManyField(
+        User,
         related_name='user',
-        blank=True, 
-        null=True
+        blank=True
     )
     title = models.CharField(
         _('Title'),
@@ -128,4 +126,10 @@ class FeaturedCategory(models.Model):
     )
 
     def __str__(self):
-        return self.user.email
+        return f'{self.user.id}'
+
+    # def save(self, *args, **kwargs):
+    #     self.user = self.request.user
+    #     inst = super(FeaturedCategory, self).save(*args, **kwargs)
+    #     return inst
+

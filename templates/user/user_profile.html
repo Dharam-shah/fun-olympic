@@ -25,15 +25,15 @@
                     </div>
                 </div>
             </div>
-            <div class="profile-tab">
+            {% comment %} <div class="profile-tab">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
                       <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Video category</a>
                     </li>
                    
-                    {% comment %} <li class="nav-item">
+                    <li class="nav-item">
                       <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Update profile</a>
-                    </li> {% endcomment %}
+                    </li>
                 </ul>
 
                 <div class="tab-content pt-3 pt-lg-4" id="myTabContent">
@@ -42,18 +42,17 @@
                             {% csrf_token %}
                             <div class="">
                                 <label>Please choose your intrested category:</label>
-                                {{ form.category|as_crispy_field  }}
+                                {{ form|crispy }}
                             </div>
-                            {{ form.user|as_crispy_field  }}
                             <div class="register-btn text-center">    
                                 <button type="Submit" class="btn btn-primary px-4">Save</button>
                             </div>
                         </form>
                      </div>
                 </div>
-                    {% comment %} <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div> {% endcomment %}
+                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
                 </div>
-            </div>
+            </div> {% endcomment %}
         </div>
     </div>
 </section>
