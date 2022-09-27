@@ -22,7 +22,13 @@
             <picture>
               <img width="500" height="325" loading="lazy" src="{{ game.thumbnail_image.url }}" alt="Sinai Documentaries"/>
             </picture>
-            <a href="{{ game.video_url }}" class="btn-play" data-fancybox=""><i class="fa fa-play"></i></a>
+            <a href="
+            {% if user.is_authenticated %}
+            {{ game.video_url }}
+            {% else %}
+            {% url 'login' %}
+            {% endif %}
+            " class="btn-play" data-fancybox=""><i class="fa fa-play"></i></a>
           </div>
           <div class="card-video__title">
             <h3 class="h5 mb-2 mb-lg-3">{{ game.title }}</h3>
