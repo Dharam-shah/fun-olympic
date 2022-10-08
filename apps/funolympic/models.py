@@ -127,9 +127,3 @@ class FeaturedCategory(models.Model):
 
     def __str__(self):
         return f'{self.user.id}'
-
-    # def save(self, *args, **kwargs):
-    #     self.user = self.request.user
-    #     inst = super(FeaturedCategory, self).save(*args, **kwargs)
-    #     return inst
-

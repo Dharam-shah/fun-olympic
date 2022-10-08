@@ -15,7 +15,7 @@
           <th scope="col">Name</th>
           <th scope="col">Joined date</th>
           <th scope="col">Email</th>
-          {% comment %} <th scope="col">Action</th> {% endcomment %}
+          <th scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
@@ -25,7 +25,7 @@
           <td>{{ user.first_name }} {{ user.last_name }}</td>
           <td>{{ user.date_joined|date:"M d, Y" }}</td>
           <td>{{ user.email }}</td>
-          {% comment %} <td>
+          <td>
             <div class="dropdown">
               <a
                 class="btn btn-secondary dropdown-toggle"
@@ -38,10 +38,10 @@
                 <i class="fa fa-pencil-square" aria-hidden="true"></i>
               </a>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="#">Edit</a>
+                <a class="dropdown-item" href="{% url 'update-user' user.id %}">Edit</a>
               </div>
             </div>
-          </td> {% endcomment %}
+          </td>
         </tr>
         {% endfor %}
       </tbody>
