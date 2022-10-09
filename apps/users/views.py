@@ -1,13 +1,13 @@
 from django.shortcuts import render
 from django.views.generic import CreateView, TemplateView
-from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.views import LoginView, LogoutView, PasswordChangeView
 from django.urls import reverse
 from django.shortcuts import redirect
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic.edit import FormView, UpdateView
 from apps.funolympic.models import Category
 from .forms import SignUpForm, UpdateProfileForm
-from .forms import UpdateCategoryForm
+from .forms import UpdateUserDetailForm
 from .models import User
 # from apps.funolympic.forms import FeaturedCategoryForm
 
@@ -41,40 +41,16 @@ class UserLogoutView(LogoutView):
         return reverse('homepage')
 
 
-class UserProfile(FormView):
+class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
+    template_name='account/change_password.html'
+
+    def get_success_url(self ,*args, **kwargs):
+        return reverse('login')
+
+
+class UserProfile(TemplateView):
     model = User
-    form_class = UpdateCategoryForm
     template_name = 'user/user_profile.html'
-    
-    # def get_form_kwargs(self, *args, **kwargs):
-    #     kwargs = super(UserProfile, self).get_form_kwargs()
-    #     kwargs['c_user'] = self.request.user
-    #     import ipdb; ipdb.set_trace()
-    #     return kwargs
-
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     user = self.request.user
-    #     context["selected_category"] = Category.objects.filter(user=user)
-    #     return context
-
-    # def post(self, request, *args, **kwargs):
-    #     form = UpdateCategoryForm(request.POST)
-    #     if form.is_valid():
-    #         # selected_category = form.cleaned_data.get('category')
-    #         # current_user = self.request.user
-    #         # current_user.user.set(selected_category)
-    #         # current_user.save()
-    #         self.object = form.save(commit=False)
-            
-    #         form.save()
-    #         self.object.user.set(self.request.user)
-            
-
-    #     return super().post(request, *args, **kwargs)
-
-    # def get_success_url(self ,*args, **kwargs):
-    #     return reverse('profile')
 
 
 class UpdateProfile(UpdateView):
@@ -84,3 +60,12 @@ class UpdateProfile(UpdateView):
 
     def get_success_url(self ,*args, **kwargs):
         return reverse('profile')
+
+
+class UpdateUserView(UpdateView):
+    model = User
+    form_class = UpdateUserDetailForm
+    template_name = 'controlpanel/users/update_user.html'
+
+    def get_success_url(self ,*args, **kwargs):
+        return reverse('user-list')

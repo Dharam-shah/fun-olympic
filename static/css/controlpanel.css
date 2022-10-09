@@ -287,7 +287,6 @@ a[data-toggle="collapse"] {
     background: #2596be;
 }
 
-/* textarea.form-control {
-    resize: none;
-    height: 7.5rem;
-} */
+#hint_id_new_password1 {
+    display: none;
+}
